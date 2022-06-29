@@ -1,4 +1,4 @@
-package model_entidades;
+package jogo_de_tabuleiro;
 public class Posicao {
     private int linha;
     private int coluna;

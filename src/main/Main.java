@@ -1,11 +1,11 @@
 package main;
 
-import model_entidades.Posicao;
+import jogo_de_tabuleiro.Posicao;
+import jogo_de_tabuleiro.Tabuleiro;
 
 public class Main {
     public static void main(String[]args) {
-        Posicao posicao = new Posicao(3, 5);
-        System.out.println(posicao);
+       Tabuleiro t = new Tabuleiro(8, 8);
     }
     
 }
