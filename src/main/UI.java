@@ -1,7 +1,12 @@
 package main;
 
+import java.util.Scanner;
+
+import javax.management.RuntimeErrorException;
+
 import xadrez.Cor;
 import xadrez.PecaDeXadrez;
+import xadrez.XadrezPosicao;
 
 public class UI {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -20,9 +25,20 @@ public class UI {
 	public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
 	public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
-	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
-	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+    public static XadrezPosicao readChessPosition(Scanner sc){
+        try {
+            String s = sc.nextLine();
+            char coluna = s.charAt(0);
+            int linha = Integer.parseInt(s.substring(1));
+            return new XadrezPosicao(coluna, linha);
+        } catch (RuntimeException e) {
+            //TODO: handle exception
+            throw new RuntimeException("Erro lendo posição de");
+        }
+    }
     public static void printTabuleiro(PecaDeXadrez[][] pecas){
         for(int i= 0; i < pecas.length; i++){
             System.out.print(8 - i);
