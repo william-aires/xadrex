@@ -5,6 +5,7 @@ import java.util.Scanner;
 import javax.management.RuntimeErrorException;
 
 import xadrez.Cor;
+import xadrez.PartidaDeXadrez;
 import xadrez.PecaDeXadrez;
 import xadrez.XadrezPosicao;
 
@@ -84,5 +85,12 @@ public class UI {
             }
         }
         System.out.print(" ");
+    }
+    
+    public static void printPartida(PartidaDeXadrez partidaDeXadrez){
+        printTabuleiro(partidaDeXadrez.getPecas());
+        System.out.println();
+        System.out.println("Turno: " + partidaDeXadrez.getTurno());
+        System.out.println("Esperando jogador: " + partidaDeXadrez.getJogadorAtual());
     }
 }
