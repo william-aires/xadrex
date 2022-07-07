@@ -14,6 +14,10 @@ public class Posicao {
     public int getLinha() {
         return linha;
     }
+    public void setValores(int linha, int coluna){
+        this.linha = linha;
+        this.coluna = coluna;
+    }
 
     /**
      * @param linha the linha to set

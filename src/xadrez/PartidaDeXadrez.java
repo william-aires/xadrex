@@ -5,6 +5,7 @@ import javax.xml.transform.Source;
 import jogo_de_tabuleiro.Peca;
 import jogo_de_tabuleiro.Posicao;
 import jogo_de_tabuleiro.Tabuleiro;
+import jogo_de_tabuleiro.TabuleiroException;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -28,8 +29,15 @@ public class PartidaDeXadrez {
         Posicao origem = posicaoOrigem.toPosition();
         Posicao destino = posicaoDestino.toPosition();
         validarOrigemPosicao(origem);
+        validarDestinoPosicao(origem, destino);
         Peca capituraPeca = fazerMover(origem, destino);
         return (PecaDeXadrez) capituraPeca;
+    }
+
+    private void validarDestinoPosicao(Posicao origem,Posicao destino){
+        if(!tabuleiro.peca(origem).podeSeMover(destino)){
+            throw new TabuleiroException("A peca escolhida nao pode se mover para posicao de destino");
+        }
     }
 
     private Peca fazerMover(Posicao origem, Posicao destino) {
